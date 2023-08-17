@@ -19,7 +19,7 @@ Route::prefix('merchant')
     ->middleware(['auth:sanctum', 'verified', 'authRole:MERCHANT'])
     ->group(function () {
         Route::apiResource("products", ProductController::class);
-        // Route::apiResource("product-images", ProductImageController::class)
-        //     ->except(['index', 'show', 'update']);
-        // Route::get("product-images/{product}", [ProductImageController::class, "index"])->name("product-images.index");
+        Route::apiResource("product-images", ProductImageController::class)
+            ->except(['index', 'show', 'update']);
+        Route::get("product-images/{product}", [ProductImageController::class, "index"])->name("product-images.index");
     });
