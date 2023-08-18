@@ -11,7 +11,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
-// use Kavist\RajaOngkir\Facades\RajaOngkir;
 use App\Http\Requests\API\CheckoutRequest;
 use App\Traits\MidtransPayment;
 use Symfony\Component\HttpFoundation\Response;
