@@ -10,7 +10,9 @@ use App\Models\MerchantAccount;
 use App\Models\Product;
 use App\Models\Province;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
 class DatabaseSeeder extends Seeder
@@ -29,7 +31,11 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         foreach (['ADMIN', 'STAFF', 'MERCHANT'] as $role)
-            $user[strtolower($role)] = User::factory()->create(['role' => $role]);
+            $user[strtolower($role)] = User::factory()
+                                           ->create([
+                                            'role' => $role,
+                                            'password' => Hash::make('Test7@_'.$role)
+                                        ]);
         
         $this->call([
             CategorySeeder::class,
